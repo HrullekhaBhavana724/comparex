@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompareX | Compare Better. Buy Smarter.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+   <link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- Background Effects -->
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+<div class="blur blur3"></div>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-box">
+                CX
+            </div>
+
+            <div class="logo-text">
+
+                <h2>CompareX</h2>
+
+                <span>Compare Better. Buy Smarter.</span>
+
+            </div>
+
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#trending">Trending</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#footer">Contact</a></li>
+            <a href="{{ url_for('admin') }}" class="compare-btn">
+    ⚙️ Admin Panel
+</a>
+
+        </ul>
+
+        <div class="nav-icons">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <i class="fa-solid fa-bars menu"></i>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-left" data-aos="fade-right">
+
+        <span class="badge">
+            AI Powered Price Comparison
+        </span>
+
+        <h1>
+            Compare Better.<br>
+            Buy Smarter.
+        </h1>
+
+        <p>
+            Compare prices across Amazon, Flipkart, Croma,
+            Reliance Digital, Vijay Sales and more.
+            Discover the lowest prices and AI-powered buying
+            recommendations instantly.
+        </p>
+
+<form class="hero-search" action="/search" method="GET">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+        type="text"
+        name="product"
+        placeholder="Search iPhone 16, MacBook Air..."
+        required>
+
+    <button type="submit">
+        Compare
+    </button>
+
+</form>
+
+        <div class="popular">
+
+            <span>Popular Searches</span>
+
+            <div class="popular-tags">
+
+                <button>iPhone 16</button>
+
+                <button>MacBook Air M4</button>
+
+                <button>Samsung S25</button>
+
+                <button>PlayStation 5</button>
+
+                <button>Sony XM5</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- HERO RIGHT -->
+
+    <div class="hero-right" data-aos="fade-left">
+
+        <div class="floating-card card1">
+
+            <img src="{{ url_for('static', filename='images/macbook-air-m4.png') }}">
+
+            <h3>MacBook Air M4</h3>
+
+            <p>Amazon</p>
+
+            <h2>₹94,999</h2>
+
+            <span class="green">
+
+                <i class="fa-solid fa-arrow-down"></i>
+
+                Price Drop Expected
+
+            </span>
+
+        </div>
+
+        <div class="floating-card card2">
+
+            <img src="{{ url_for('static', filename='images/iphone16.png') }}">
+
+            <h3>iPhone 16</h3>
+
+            <p>Flipkart</p>
+
+            <h2>₹71,499</h2>
+
+            <span class="yellow">
+
+                Lowest Price
+
+            </span>
+
+        </div>
+
+        <div class="floating-card card3">
+
+            <img src="{{ url_for('static', filename='images/sony-xm5.png') }}">
+
+            <h3>Sony WH-1000XM5</h3>
+
+            <p>Croma</p>
+
+            <h2>₹22,999</h2>
+
+            <span class="blue">
+
+                AI Recommended
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+        TRUSTED SHOPPING PARTNERS
+=========================================== -->
+
+<section class="stores" id="stores">
+
+    <div class="section-title" data-aos="fade-up">
+
+        <span>Our Partners</span>
+
+        <h2>Trusted Shopping Partners</h2>
+
+        <p>
+            Compare prices from India's most trusted online retailers.
+        </p>
+
+    </div>
+
+    <div class="store-container">
+
+        <div class="store" data-aos="zoom-in">
+            <img src="{{ url_for('static', filename='images/amazon.png') }}">
+        </div>
+
+        <div class="store" data-aos="zoom-in" data-aos-delay="100">
+           <img src="{{ url_for('static', filename='images/flipkart.png') }}">
+        </div>
+
+        <div class="store" data-aos="zoom-in" data-aos-delay="200">
+           <img src="{{ url_for('static', filename='images/croma.png') }}">
+        </div>
+
+        <div class="store" data-aos="zoom-in" data-aos-delay="300">
+           <img src="{{ url_for('static', filename='images/reliance.png') }}">
+        </div>
+
+        <div class="store" data-aos="zoom-in" data-aos-delay="400">
+            <img src="{{ url_for('static', filename='images/vijaysales.png') }}">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+                TRENDING PRODUCTS
+=========================================== -->
+
+<section class="trending" id="trending">
+
+    <div class="section-title">
+
+        <span>Trending Products</span>
+
+        <h2>Today's Best Deals</h2>
+
+        <p>
+            Explore today's most searched products with the best available prices.
+        </p>
+
+    </div>
+
+    <div class="product-grid">
+
+        <!-- Card 1 -->
+
+        <a href="{{ url_for('compare', product_name='iPhone 16') }}" class="product-link">
+
+<div class="product-card" data-aos="zoom-in">
+
+    <div class="product-image">
+        <img src="{{ url_for('static', filename='images/iphone16.png') }}" alt="iPhone 16">
+        <span class="best-badge">Best Deal</span>
+    </div>
+
+    <div class="product-info">
+        <h3>Apple iPhone 16 (128GB)</h3>
+        <p>Starting From</p>
+        <h2>₹71,499</h2>
+        <p>Available on Flipkart, Amazon & Croma</p>
+        <button>Compare Prices</button>
+    </div>
+
+</div>
+
+</a>
+        <!-- Card 2 -->
+
+      <a href="{{ url_for('compare', product_name='MacBook Air M4') }}" class="product-link">
+
+    <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
+
+        <div class="product-image">
+            <img src="{{ url_for('static', filename='images/macbook-air-m4.png') }}" alt="MacBook Air M4">
+        </div>
+
+        <div class="product-info">
+            <h3>MacBook Air M4</h3>
+            <p>Starting From</p>
+            <h2>₹94,999</h2>
+            <p>Available on Amazon, Flipkart & Croma</p>
+            <button>Compare Prices</button>
+        </div>
+
+    </div>
+
+</a>
+
+        <!-- Card 3 -->
+
+       <a href="{{ url_for('compare', product_name='Sony XM5') }}" class="product-link">
+
+    <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+
+        <div class="product-image">
+            <img src="{{ url_for('static', filename='images/sony-xm5.png') }}" alt="Sony WH-1000XM5">
+        </div>
+
+        <div class="product-info">
+            <h3>Sony WH-1000XM5</h3>
+            <p>Starting From</p>
+            <h2>₹22,999</h2>
+            <p>Available on Croma, Amazon & Reliance Digital</p>
+            <button>Compare Prices</button>
+        </div>
+
+    </div>
+
+</a>
+
+        <!-- Card 4 -->
+
+      <a href="{{ url_for('compare', product_name='PlayStation 5') }}" class="product-link">
+
+    <div class="product-card" data-aos="zoom-in" data-aos-delay="300">
+
+        <div class="product-image">
+            <img src="{{ url_for('static', filename='images/ps5.png') }}" alt="PlayStation 5 Slim">
+        </div>
+
+        <div class="product-info">
+            <h3>PlayStation 5 Slim</h3>
+            <p>Starting From</p>
+            <h2>₹49,990</h2>
+            <p>Available on Amazon, Flipkart & Reliance Digital</p>
+            <button>Compare Prices</button>
+        </div>
+
+    </div>
+
+</a>
+
+</section>
+
+
+<!-- ==========================================
+                CATEGORIES
+=========================================== -->
+
+<section class="categories" id="categories">
+
+    <div class="section-title">
+
+        <span>Browse Categories</span>
+
+        <h2>Shop By Category</h2>
+
+        <p>
+            Explore products from your favourite categories.
+        </p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <h3>Mobiles</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fa-solid fa-laptop"></i>
+            <h3>Laptops</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fa-solid fa-headphones"></i>
+            <h3>Headphones</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fa-solid fa-tv"></i>
+            <h3>Televisions</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="400">
+            <i class="fa-solid fa-gamepad"></i>
+            <h3>Gaming</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in" data-aos-delay="500">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Smart Watches</h3>
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+                WHY COMPAREX
+=========================================== -->
+
+<section class="features" id="features">
+
+    <div class="section-title" data-aos="fade-up">
+
+        <span>Why CompareX?</span>
+
+        <h2>Smarter Shopping Starts Here</h2>
+
+        <p>
+            Everything you need to compare products, analyse prices,
+            and make better buying decisions.
+        </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card" data-aos="fade-up">
+
+            <i class="fa-solid fa-scale-balanced"></i>
+
+            <h3>Instant Comparison</h3>
+
+            <p>
+                Compare prices from multiple shopping websites in seconds.
+            </p>
+
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>Price History</h3>
+
+            <p>
+                View historical price trends before making a purchase.
+            </p>
+
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h3>AI Prediction</h3>
+
+            <p>
+                Predict whether prices will increase or decrease in the
+                coming days.
+            </p>
+
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <h3>Fast Search</h3>
+
+            <p>
+                Optimised search delivers results instantly across stores.
+            </p>
+
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+
+            <i class="fa-solid fa-store"></i>
+
+            <h3>Trusted Stores</h3>
+
+            <p>
+                Compare products from Amazon, Flipkart, Croma,
+                Reliance Digital and more.
+            </p>
+
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h3>Safe & Reliable</h3>
+
+            <p>
+                Compare only verified sellers and trusted shopping platforms.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+                AI PRICE PREDICTION
+=========================================== -->
+
+<section class="ai-section">
+
+    <div class="ai-left" data-aos="fade-right">
+
+        <span>AI Price Prediction</span>
+
+        <h2>Know The Best Time To Buy</h2>
+
+        <p>
+
+            CompareX uses historical pricing data and intelligent
+            algorithms to predict future prices.
+
+        </p>
+
+        <ul class="ai-list">
+
+            <li>
+                <i class="fa-solid fa-circle-check"></i>
+                Predict future price drops
+            </li>
+
+            <li>
+                <i class="fa-solid fa-circle-check"></i>
+                Track historical prices
+            </li>
+
+            <li>
+                <i class="fa-solid fa-circle-check"></i>
+                Get AI buying recommendations
+            </li>
+
+            <li>
+                <i class="fa-solid fa-circle-check"></i>
+                Save money on every purchase
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="prediction-card" data-aos="fade-left">
+
+        <div class="prediction-header">
+
+            <h3>MacBook Air M4</h3>
+
+            <span class="green">
+
+                AI Recommendation
+
+            </span>
+
+        </div>
+
+        <div class="price-box">
+
+            <div>
+
+                <small>Current Price</small>
+
+                <h2>₹94,999</h2>
+
+            </div>
+
+            <div>
+
+                <small>Predicted Price</small>
+
+                <h2>₹92,499</h2>
+
+            </div>
+
+        </div>
+
+        <div class="recommendation">
+
+            <i class="fa-solid fa-arrow-trend-down"></i>
+
+            <h3>Wait 5 Days</h3>
+
+            <p>
+
+                Expected price drop of ₹2,500.
+                Our AI recommends waiting before buying.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+                HOW IT WORKS
+=========================================== -->
+
+<section class="workflow">
+
+    <div class="section-title" data-aos="fade-up">
+
+        <span>How CompareX Works</span>
+
+        <h2>Simple. Fast. Intelligent.</h2>
+
+        <p>
+
+            CompareX combines APIs, web scraping,
+            price history and AI to help you shop smarter.
+
+        </p>
+
+    </div>
+
+    <div class="workflow-container">
+
+        <!-- Step 1 -->
+
+        <div class="step" data-aos="zoom-in">
+
+            <div class="step-number">1</div>
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <h3>Search</h3>
+
+            <p>
+
+                Search any product such as
+                iPhone, MacBook or PS5.
+
+            </p>
+
+        </div>
+
+        <!-- Step 2 -->
+
+        <div class="step" data-aos="zoom-in" data-aos-delay="100">
+
+            <div class="step-number">2</div>
+
+            <i class="fa-solid fa-globe"></i>
+
+            <h3>Collect Prices</h3>
+
+            <p>
+
+                Fetch prices from multiple
+                trusted online stores.
+
+            </p>
+
+        </div>
+
+        <!-- Step 3 -->
+
+        <div class="step" data-aos="zoom-in" data-aos-delay="200">
+
+            <div class="step-number">3</div>
+
+            <i class="fa-solid fa-scale-balanced"></i>
+
+            <h3>Compare</h3>
+
+            <p>
+
+                Instantly compare prices,
+                discounts and availability.
+
+            </p>
+
+        </div>
+
+        <!-- Step 4 -->
+
+        <div class="step" data-aos="zoom-in" data-aos-delay="300">
+
+            <div class="step-number">4</div>
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h3>Buy Smart</h3>
+
+            <p>
+
+                Receive AI recommendations
+                before making your purchase.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+                CALL TO ACTION
+=========================================== -->
+
+<section class="cta">
+
+    <div class="cta-content" data-aos="zoom-in">
+
+        <h2>Ready to Save More?</h2>
+
+        <p>
+            Compare prices from India's top online stores and
+            make smarter buying decisions with AI-powered insights.
+        </p>
+
+        <button class="cta-btn">
+            Start Comparing
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+                    FOOTER
+=========================================== -->
+
+<footer id="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-about">
+
+            <div class="footer-logo">
+
+                <div class="logo-box">CX</div>
+
+                <div>
+
+                    <h2>CompareX</h2>
+
+                    <p>Compare Better. Buy Smarter.</p>
+
+                </div>
+
+            </div>
+
+            <p class="footer-desc">
+
+                CompareX helps users compare product prices,
+                analyse price history and receive AI-powered
+                buying recommendations.
+
+            </p>
+
+            <div class="social-links">
+
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="#">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#trending">Trending</a>
+            <a href="#features">Features</a>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Services</h3>
+
+            <a href="#">Price Comparison</a>
+            <a href="#">Price History</a>
+            <a href="#">AI Prediction</a>
+            <a href="#">Trending Deals</a>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Contact</h3>
+
+            <p><i class="fa-solid fa-envelope"></i> support@comparex.com</p>
+
+            <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+
+            <p><i class="fa-solid fa-location-dot"></i> India</p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 CompareX. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+<!-- Scroll To Top -->
+
+<button id="topBtn">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- AOS -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+    duration:1000,
+    once:true
+});
+
+</script>
+
+<!-- Main JS -->
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>{{ product.name }} Prices | CompareX</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<section class="manage-prices">
+
+    <div class="section-title">
+
+        <span>Admin Panel</span>
+
+        <h2>{{ product.name }}</h2>
+
+        <p>Manage Store Prices</p>
+
+    </div>
+
+    <div style="text-align:center; margin-bottom:25px;">
+
+        <a href="{{ url_for('update_prices', product_name=product.name) }}"
+           class="buy-btn">
+            🔄 Update Prices
+        </a>
+
+    </div>
+
+    <div class="price-card">
+
+        <h2>{{ product.name }}</h2>
+
+        <h3>Total Stores : {{ store_prices|length }}</h3>
+
+        <!-- Add Price Form -->
+
+        <form action="{{ url_for('add_price', product_id=product.id) }}"
+              method="POST"
+              class="price-form">
+
+            <input
+                type="text"
+                name="store"
+                placeholder="Store Name"
+                required>
+
+            <input
+                type="number"
+                name="price"
+                placeholder="Price"
+                required>
+
+            <button type="submit">
+                Add Price
+            </button>
+
+        </form>
+
+        {% if store_prices %}
+
+        <table class="price-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Store</th>
+
+                    <th>Price</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for row in store_prices %}
+
+                <tr>
+
+                    <td>{{ row.store }}</td>
+
+                    <td>₹{{ "{:,}".format(row.price) }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <h3 style="text-align:center; margin-top:30px;">
+            No prices found.
+        </h3>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

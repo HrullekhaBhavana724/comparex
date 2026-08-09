@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Results | CompareX</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<section class="search-results">
+
+    <div class="container">
+
+        <div class="search-header">
+
+            <span class="search-badge">
+                Search Results
+            </span>
+
+            <h1>Results for "{{ keyword }}"</h1>
+
+            <p>
+                Compare prices across India's top online stores.
+            </p>
+
+        </div>
+
+        {% if results %}
+
+        <div class="results-grid">
+
+            {% for product in results %}
+
+            <div class="result-card">
+
+                <div class="result-image">
+
+                    <img src="{{ url_for('static', filename=product.image) }}"
+                         alt="{{ product.name }}">
+
+                </div>
+
+                <div class="result-content">
+
+                    <h2>{{ product.name }}</h2>
+
+                    <p class="store">
+                        {{ product.store }}
+                    </p>
+
+                    <h3 class="price">
+                        {{ product.price }}
+                    </h3>
+
+                    <a href="{{ url_for('compare', product_name=product.name) }}"
+                       class="compare-btn">
+
+                        Compare Prices →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="no-results">
+
+            <h2>No Products Found 😔</h2>
+
+            <p>Try searching for another product.</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

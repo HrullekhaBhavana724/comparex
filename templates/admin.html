@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel | CompareX</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<section class="admin-page">
+
+    <div class="admin-header">
+
+        <span class="search-badge">
+            Admin Panel
+        </span>
+
+        <h1>Manage Products</h1>
+
+        <p>
+            Add new products, update live prices and manage your CompareX catalog.
+        </p>
+
+    </div>
+
+    <div class="admin-card">
+
+        <!-- Add Product -->
+
+        <form action="/add_product" method="POST" class="add-product-form">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Product Name"
+                required>
+
+            <input
+                type="text"
+                name="image"
+                placeholder="images/product.png"
+                required>
+
+            <button
+                type="submit"
+                class="compare-btn">
+
+                + Add Product
+
+            </button>
+
+        </form>
+
+        <!-- Product Table -->
+
+        <table class="admin-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Image Path</th>
+                    <th>Prices</th>
+                    <th>Live Update</th>
+                    <th>Delete</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for product in products %}
+
+                <tr>
+
+                    <td>{{ product.id }}</td>
+
+                    <td>
+
+                        <strong>{{ product.name }}</strong>
+
+                    </td>
+
+                    <td>
+
+                        {{ product.image }}
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('prices', product_id=product.id) }}"
+                            class="manage-btn price-btn">
+
+                            Manage Prices
+
+                        </a>
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('update_prices', product_name=product.name) }}"
+                            class="manage-btn update-btn">
+
+                            🔄 Update Prices
+
+                        </a>
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{{ url_for('delete_product', product_id=product.id) }}"
+                            class="manage-btn delete-btn"
+                            onclick="return confirm('Delete this product?');">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

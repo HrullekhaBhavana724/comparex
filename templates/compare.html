@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ product.name }} | CompareX</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<section class="compare-page">
+
+    <div class="container">
+
+        <!-- Hero -->
+
+        <div class="compare-hero">
+
+            <div class="compare-image">
+
+                <img src="{{ url_for('static', filename=product.image) }}"
+                     alt="{{ product.name }}">
+
+            </div>
+
+            <div class="compare-details">
+
+                <span class="search-badge">
+                    Price Comparison
+                </span>
+
+                <h1>{{ product.name }}</h1>
+
+                <h2>
+                    ₹{{ "{:,}".format(prices[0]["price"]) }}
+                </h2>
+
+                <p>
+                    Best Price Available
+                </p>
+
+                <a href="{{ url_for('update_prices',
+                         product_name=product.name) }}"
+                   class="update-btn">
+
+                    🔄 Update Prices
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Store Cards -->
+
+        <div class="price-grid">
+
+            {% for item in prices %}
+
+            <div class="store-price-card">
+
+                <h3>{{ item["store"] }}</h3>
+
+                <h2>₹{{ "{:,}".format(item["price"]) }}</h2>
+
+                {% if item["store"] == lowest_store %}
+
+                <span class="lowest-badge">
+                    Lowest Price
+                </span>
+
+                {% else %}
+
+                <span class="available-badge">
+                    Available
+                </span>
+
+                {% endif %}
+
+                <a href="{{ item['link'] }}"
+                   target="_blank"
+                   class="buy-btn">
+
+                    Buy Now →
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <!-- AI Prediction -->
+
+        <div class="prediction-card">
+
+            <h2>📈 AI Price Prediction</h2>
+
+            <h3>Expected Price</h3>
+
+            <div class="prediction-price">
+
+                ₹{{ "{:,}".format(prediction.prediction) }}
+
+            </div>
+
+            <p>
+
+                {{ prediction.advice }}
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>
