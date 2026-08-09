@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS prices (
     product_id INTEGER,
     store TEXT NOT NULL,
     price INTEGER NOT NULL,
+    link TEXT,
     FOREIGN KEY(product_id) REFERENCES products(id)
 )
 """)

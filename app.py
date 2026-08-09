@@ -169,7 +169,7 @@ def add_price(product_id):
 @app.route("/update_prices/<product_name>")
 def update_prices(product_name):
 
-    subprocess.run(["python3", "scrapers/update_prices.py", product_name])
+    subprocess.run(["python3", "scraper/update_prices.py", product_name])
 
     return redirect(url_for("compare", product_name=product_name))
 @app.route("/delete_product/<int:product_id>")
