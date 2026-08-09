@@ -135,3 +135,6 @@ Successful requests should return HTTP `200` responses for the main application 
 ## 📄 License
 
 This project is currently intended for educational and personal development purposes.
+## 🌱 Development
+
+New features are developed in separate Git branches before being merged into `main`.
